@@ -50,7 +50,7 @@ console.log("API_BASE_URL:", API_BASE_URL);
           response = await axios.get(`${API_BASE_URL}/api/jobs`);
         } catch (error) {
           console.log('Trying alternative endpoint...');
-          response = await axios.get('${API_BASE_URL}/api/jobs');
+          response = await axios.get(`${API_BASE_URL}/api/jobs`);
         }
       } else {
         

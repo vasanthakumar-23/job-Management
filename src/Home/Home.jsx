@@ -41,7 +41,7 @@ const Home = () => {
         response = await axios.get(`${API_BASE_URL}/api/jobs`)
       } catch (error) {
         console.log('First attempt failed, trying alternative endpoint...')
-        response = await axios.get('/api/jobs')
+        response = await axios.get(`${API_BASE_URL}/api/jobs`)
       }
       
       console.log('All jobs fetched:', response.data)
