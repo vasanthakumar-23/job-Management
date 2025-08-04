@@ -6,7 +6,7 @@ import axios from "axios";
 const CreateJob = () => {
   const { register, handleSubmit, reset } = useForm();
   const { open,setOpen } = useContext(formContext);
-  const API_BASE_URL = import.meta.env.VITE_API_URL;
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   console.log("API_BASE_URL:", API_BASE_URL);
   const onSubmit = async (data) => {
     console.log(data);
