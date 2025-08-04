@@ -1,68 +1,41 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@tailwind utilities;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+@layer utilities{
+    .btn-bg{
+        background: linear-gradient(0deg, rgba(159, 33, 228, 1), rgba(195, 45, 225, 1));
+-webkit-background: linear-gradient(0deg, rgba(159, 33, 228, 1), rgba(195, 45, 225, 1));
+-moz-background: linear-gradient(0deg, rgba(159, 33, 228, 1), rgba(195, 45, 225, 1));
+    }
+    .nav>li{
+        @apply cursor-pointer;
+    }
+    .input{
+        @apply w-40 h-10 focus:outline-none focus:ring-0 border-none
+    }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+    .job-container{
+        @apply w-70 h-78 rounded-2xl;
+    }
+    .form-container{
+        @apply w-[50vw] h-[92vh] absolute rounded-lg bg-gray-100  top-[20%] right-[25%];
+    }
+    
+    label{
+        @apply font-semibold text-[16px];
+    }
+    .form-container input,select{
+       
+       border:1px solid gray;
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+    }
+    .jobdetails{
+        @apply flex flex-row shrink-0 mr-2;
+    }
+    .blur-xs {
+        filter: blur(5px);
+      }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}

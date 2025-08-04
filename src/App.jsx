@@ -1,34 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react'
+import Home from './Home/Home.jsx'
+import Navbar from './Navbar/Navbar.jsx'
+import Filter from './filter/filter.jsx'
+import CreateJob from "./form/createJob.jsx"
 
-function App() {
-  const [count, setCount] = useState(0)
+export const formContext = React.createContext();
+export const filterContext = React.createContext();
+
+const App = () => {
+  const [open, setOpen] = useState(false);
+  const [jobs, setJobs] = useState([]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="relative min-h-screen">
+      
+      <div className={`transition-all duration-300 ${open ? 'blur-xs' : 'blur-none'}`}>
+        <formContext.Provider value={{ open, setOpen }}>
+          <filterContext.Provider value={{ jobs, setJobs }}>
+            <Navbar />
+            <Filter />
+            <Home />
+          </filterContext.Provider>
+        </formContext.Provider>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      
+    
+      <formContext.Provider value={{ open, setOpen }}>
+        <CreateJob />
+      </formContext.Provider>
+    </div>
   )
 }
 
