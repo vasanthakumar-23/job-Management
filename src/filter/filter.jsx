@@ -50,7 +50,7 @@ console.log("API_BASE_URL:", API_BASE_URL);
           response = await axios.get(`${API_BASE_URL}/api/jobs`);
         } catch (error) {
           console.log('Trying alternative endpoint...');
-          response = await axios.get('/api/jobs');
+          response = await axios.get('${API_BASE_URL}/api/jobs');
         }
       } else {
         
@@ -69,7 +69,7 @@ console.log("API_BASE_URL:", API_BASE_URL);
           console.log('Filter API response:', response.data);
         } catch (error) {
           console.log('Trying alternative filter endpoint...');
-          response = await axios.get('/api/jobs/filter', {
+          response = await axios.get(`${API_BASE_URL}/api/jobs/filter`, {
             params: filterParams
           });
           console.log('Alternative filter API response:', response.data);

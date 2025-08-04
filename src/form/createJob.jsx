@@ -6,11 +6,12 @@ import axios from "axios";
 const CreateJob = () => {
   const { register, handleSubmit, reset } = useForm();
   const { open,setOpen } = useContext(formContext);
-
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+  console.log("API_BASE_URL:", API_BASE_URL);
   const onSubmit = async (data) => {
     console.log(data);
     try {
-      await axios.post("/api/jobs", {
+      await axios.post(`${API_BASE_URL}/api/jobs`, {
         ...data,
         status: "published",
       });
@@ -24,7 +25,7 @@ const CreateJob = () => {
 
   const handleDraft = async (data) => {
     try {
-      await axios.post("http://localhost:5000/api/jobs", {
+      await axios.post(`${API_BASE_URL}/api/jobs`, {
         ...data,
         status: "draft",
       });
