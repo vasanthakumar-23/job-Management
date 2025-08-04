@@ -9,7 +9,7 @@ import swiggy from "../assets/companies/swiggy.png"
 import Tesla from "../assets/companies/tesla.png"
 import { filterContext } from "../App.jsx"
 import { differenceInDays, differenceInHours } from 'date-fns'
-import API_BASE_URL from '../api.js'
+
 
 const arr = [Amazon, google, swiggy, Tesla]
 
@@ -17,8 +17,10 @@ const Home = () => {
   const { jobs, setJobs } = useContext(filterContext)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+  console.log("API_BASE_URL:", API_BASE_URL);
   useEffect(() => {
+    console.log(API_BASE_URL);
     console.log('Current jobs:', jobs)
     if (jobs.length === 0) {
       fetchAllJobs()

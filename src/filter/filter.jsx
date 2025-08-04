@@ -4,10 +4,12 @@ import Field from '../components/Field'
 import search from "../assets/search.png"
 import Location from "../assets/location.png"
 import axios from 'axios'
-import API_BASE_URL from '../api.js'
+
 import { filterContext } from "../App.jsx"
 
 const Filter = () => {
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+console.log("API_BASE_URL:", API_BASE_URL);
   const [input, setInput] = useState('');
   const [location, setLocation] = useState('');
   const [job, setJob] = useState('');
