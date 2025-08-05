@@ -84,6 +84,7 @@ const CreateJob = () => {
             <option value="Full-Time">Full-time</option>
             <option value="Part-Time">Part-time</option>
             <option value="Internship">Internship</option>
+            <option value="Contract">Contract</option>
           </select>
         </div>
 
@@ -135,7 +136,7 @@ const CreateJob = () => {
         <button
           type="button"
           onClick={handleSubmit(handleDraft)}
-          className="px-4 py-2  bg-transpanrent border-black border-1 text-black rounded hover:bg-gray-600"
+          className="px-4 py-2  bg-transpanrent border-black border-1 text-black rounded"
         >
           Save as Draft
         </button>
